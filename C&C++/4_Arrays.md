@@ -419,11 +419,21 @@ Output
 
 For a 2D array, C uses row-major storage. If the array has \(C\) columns, the linear element offset of `a[i][j]`, measured in elements from the beginning of the array, is:
 
-\[ i \times C + j \]
+Offset in elements: (i*C+j)
 
-For `int a[3][4]`, the offset of `a[2][1]` is:
 
-\[ 2 \times 4 + 1 = 9 \]
+
+Actual address: (B+(i*C+j)* W
+Where:
+- (B) = base address of the array
+- (C) = number of columns
+- (W) = size of each element in bytes
+
+Total elements: rows × columns
+
+C uses row-major storage.
+
+Valid indexes for a[3][4]: rows 0–2, columns 0–3.
 
 So it is the tenth element when counting from one, or offset 9 when counting from zero.
 
